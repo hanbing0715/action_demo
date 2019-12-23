@@ -17,4 +17,4 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: libsqlite3.a
-        path: $GITHUB_WORKSPACE/lib/libsqlite3.a
+        path: lib/libsqlite3.a
