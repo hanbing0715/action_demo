@@ -9,6 +9,9 @@ jobs:
     - name: Create Temporary Directory
       run: mkdir -p $GITHUB_WORKSPACE/download
     - name: Download and build Zlib
+      env:
+        CC: gcc
+        CXX: g++
       run: |
         cd $GITHUB_WORKSPACE/download
         curl https://www.zlib.net/zlib-1.2.11.tar.gz -svL | gzip -d - > zlib-1.2.11.tar
@@ -17,6 +20,9 @@ jobs:
         ./configure --prefix=$GITHUB_WORKSPACE
         make install
     - name: Download and build OpenSSL
+      env:
+        CC: gcc
+        CXX: g++
       run: |
         cd $GITHUB_WORKSPACE/download
         curl https://www.openssl.org/source/openssl-1.1.1d.tar.gz -svL | gzip -d - > openssl-1.1.1d.tar
@@ -25,6 +31,9 @@ jobs:
         ./config --prefix=$GITHUB_WORKSPACE --openssldir=$GITHUB_WORKSPACE
         make && make install
     - name: Download and build LibSSH2
+      env:
+        CC: gcc
+        CXX: g++
       run: |
         cd $GITHUB_WORKSPACE/download
         curl https://www.libssh2.org/download/libssh2-1.9.0.tar.gz -svL | gzip -d - > libssh2-1.9.0.tar
@@ -33,6 +42,9 @@ jobs:
         ./configure --with-libssl-prefix=$GITHUB_WORKSPACE --with-libz-prefix=$GITHUB_WORKSPACE --prefix=$GITHUB_WORKSPACE
         make install
     - name: Download and build SQLite
+      env:
+        CC: gcc
+        CXX: g++
       run: |
         cd $GITHUB_WORKSPACE/download
         curl https://www.sqlite.org/2019/sqlite-autoconf-3300100.tar.gz -svL | gzip -d - > sqlite-autoconf-3300100.tar
@@ -41,6 +53,9 @@ jobs:
         ./configure --prefix=$GITHUB_WORKSPACE
         make install
     - name: Download and build c-ares
+      env:
+        CC: gcc
+        CXX: g++
       run: |
         cd $GITHUB_WORKSPACE/download
         curl https://c-ares.haxx.se/download/c-ares-1.15.0.tar.gz -svL | gzip -d - > c-ares-1.15.0.tar
@@ -49,6 +64,9 @@ jobs:
         ./configure --prefix=$GITHUB_WORKSPACE
         make install
     - name: Download and build LibUV
+      env:
+        CC: gcc
+        CXX: g++
       run: |
         cd $GITHUB_WORKSPACE/download
         curl https://github.com/libuv/libuv/archive/v1.32.0.tar.gz -svL | gzip -d - > libuv-1.32.0.tar
@@ -60,6 +78,9 @@ jobs:
         make install
         ln -s $GITHUB_WORKSPACE/lib/libuv_a.a $GITHUB_WORKSPACE/lib/libuv.a
     - name: Download and build JeMalloc
+      env:
+        CC: gcc
+        CXX: g++
       run: |
         cd $GITHUB_WORKSPACE/download
         curl https://github.com/jemalloc/jemalloc/releases/download/5.2.1/jemalloc-5.2.1.tar.bz2 -svL | bzip2 -d - > jemalloc-5.2.1.tar
@@ -68,6 +89,9 @@ jobs:
         ./configure --enable-shared --enable-static --disable-documentation --prefix=$GITHUB_WORKSPACE
         make install
     - name: Download and build ICU4C
+      env:
+        CC: gcc
+        CXX: g++
       run: |
         cd $GITHUB_WORKSPACE/download
         curl https://github.com/unicode-org/icu/releases/download/release-65-1/icu4c-65_1-src.tgz -svL | gzip -d - > icu4c-65.1.tar
@@ -77,6 +101,9 @@ jobs:
         ./configure --enable-static --prefix=$GITHUB_WORKSPACE
         make install
     - name: Download and build XZ
+      env:
+        CC: gcc
+        CXX: g++
       run: |
         cd $GITHUB_WORKSPACE/download
         curl https://tukaani.org/xz/xz-5.2.4.tar.gz -svL | gzip -d - > xz-5.2.4.tar
@@ -85,6 +112,9 @@ jobs:
         ./configure --disable-doc --disable-xz --disable-xzdec --disable-lzmadec --disable-lzmainfo --disable-lzma-links --disable-scripts --prefix=$GITHUB_WORKSPACE
         make install
     - name: Download and build LibXML2
+      env:
+        CC: gcc
+        CXX: g++
       run: |
         cd $GITHUB_WORKSPACE/download
         curl http://xmlsoft.org/sources/libxml2-2.9.10.tar.gz -svL | gzip -d - > libxml2-2.9.10.tar
@@ -93,6 +123,9 @@ jobs:
         PKG_CONFIG_PATH=$GITHUB_WORKSPACE/lib/pkgconfig ./configure --without-python --with-icu --with-zlib --prefix=$GITHUB_WORKSPACE
         make install
     - name: Download and build Aria2
+      env:
+        CC: gcc
+        CXX: g++
       run: |
         cd $GITHUB_WORKSPACE/download
         curl https://github.com/aria2/aria2/releases/download/release-1.35.0/aria2-1.35.0.tar.gz -svL | gzip -d - > aria2-1.35.0.tar
