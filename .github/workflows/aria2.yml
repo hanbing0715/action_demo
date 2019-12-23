@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Install packages
-      run: apt-get install -y build-essential pkg-config cmake curl file
+      run: sudo apt-get install -y build-essential pkg-config cmake curl file
     - name: Download and build SQLite
       run: |
         curl https://www.sqlite.org/2019/sqlite-autoconf-3300100.tar.gz -svL | gzip -d - > sqlite-autoconf-3300100.tar
