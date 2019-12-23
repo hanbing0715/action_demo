@@ -90,7 +90,7 @@ jobs:
         curl http://xmlsoft.org/sources/libxml2-2.9.10.tar.gz -svL | gzip -d - > libxml2-2.9.10.tar
         tar xf libxml2-2.9.10.tar
         cd libxml2-2.9.10
-        PKG_CONFIG_PATH=$GITHUB_WORKSPACE/lib/pkgconfig ./configure --with-icu --with-zlib --prefix=$GITHUB_WORKSPACE
+        PKG_CONFIG_PATH=$GITHUB_WORKSPACE/lib/pkgconfig ./configure --without-python --with-icu --with-zlib --prefix=$GITHUB_WORKSPACE
         make install
     - name: Download and build Aria2
       run: |
