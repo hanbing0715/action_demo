@@ -87,9 +87,9 @@ jobs:
     - name: Download and build LibXML2
       run: |
         cd $GITHUB_WORKSPACE/download
-        curl ftp://xmlsoft.org/libxml2/libxml2-2.9.9.tar.gz -svL | gzip -d - > libxml2-2.9.9.tar
-        tar xf libxml2-2.9.9.tar
-        cd libxml2-2.9.9
+        curl http://xmlsoft.org/sources/libxml2-2.9.10.tar.gz -svL | gzip -d - > libxml2-2.9.10.tar
+        tar xf libxml2-2.9.10.tar
+        cd libxml2-2.9.10
         PKG_CONFIG_PATH=$GITHUB_WORKSPACE/lib/pkgconfig ./configure --with-icu --with-zlib --prefix=$GITHUB_WORKSPACE
         make install
     - name: Download and build Aria2
