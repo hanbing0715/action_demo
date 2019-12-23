@@ -1,13 +1,16 @@
-name: "Show Linux Name"
-on: push
+name: uname
+
+on: [push]
+
 jobs:
-	uname:
-		name: "Show Linux Name"
-		runs-on: ubuntu-latest
-		steps:
-		- name: "Show Unix Name"
-		  run: |
-			uname -a
-		- name: "Show lsb_release"
-		  run: |
-			lsb_release -a
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Get Unix Name
+      run: uname -a
+    - name: Get Linux Name
+      run: lsb_release -a
+    - name: Get cpuinfo
+      run: lscpu
