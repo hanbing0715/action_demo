@@ -14,3 +14,5 @@ jobs:
       run: lsb_release -a
     - name: Get cpuinfo
       run: lscpu
+    - name: Show Environment Variable
+      run: env && pwd
